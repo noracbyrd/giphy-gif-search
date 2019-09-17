@@ -21,6 +21,7 @@ $("#searchButton").on("click", function () {
     renderButtons(entry);
 })
 
+function displayGifs () {
 $(".subject").on("click", function () {
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=B512iYGR2yIt5fyZEJzMSAMKwAQbh5xX";
     console.log("i got clicked");
@@ -33,28 +34,35 @@ $(".subject").on("click", function () {
         }
     }).then(function (response) {
         var results = response.data;
-        console.log(response.data);
+        var newGif = $("<div class='card'>");
+        var textBody = $("<div class='text-body'>");
+        var image = $("<img>");
         for (i = 0; i < results.length; i++) {
-            var newGif = $("<div class='card'>");
-            var stillImage = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("class", "card-img-top");
-            var textBody = $("<div class='text-body'>");
+            image = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("class", "card-img-top").attr("data-state","still");
+            console.log(image);
             var rating = $("<p>").attr("class", "card-text").text(results[i].rating.toUpperCase());
-            $("#gifBox").append(newGif, stillImage, textBody, rating);
+            $("#gifBox").append(newGif, image, textBody, rating);
+            var state = $(image).attr("data-state");
+            console.log(state);
+            $("<img>").on("click", function () {
+                if (state === "still") {
+                    $(image).attr("src", results[i].images.fixed_height.url);
+                    $(image).attr("data-state", "animate");
+                    // above is a setter!!! first get, then set
+                } else {
+                    $(this).attr("src", results[i].images.fixed_height_still.url);
+                    $(this).attr("data-state", "still");
+                }
+            })
         }
 
 
-    })
+    });
 })
+}
 
 
 
 
-//$(document).on("click", ".subject", renderButtons());
+$(document).on("click", ".subject", displayGifs);
 
-
-/* <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div> */
