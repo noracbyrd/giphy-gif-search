@@ -54,7 +54,6 @@ $(document).on("click", ".subject", function () {
 // Event listneer to animate/still gifs that are clicked
 // Makes sure to include .card-img-top class, which is generated dynamically
 $(document).on("click", ".card-img-top", function () {
-    console.log()
     var state = $(this).attr("data-state");
     console.log(state);
     //animate the gif
@@ -65,8 +64,8 @@ $(document).on("click", ".card-img-top", function () {
         $(this).attr("data-state", "animate");
     //still the gif
     } else {
+        console.log("arga warga");
         $(this).attr("src", $(this).attr('data-still'));
-        $(this).attr("src", $(this).attr('data-animated'));
         $(this).attr("data-state", "still");
     }
 });
