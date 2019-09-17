@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Disney Gif Search</title>
   <!--Reset css <link rel="stylesheet type="text/css" href="reset.css">-->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="additionalstyle.css">
@@ -16,11 +17,11 @@
 <body>
 
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="https://giphy.com/">
       <img src="images/PoweredBy_200px-White_HorizLogo.png" width="200" height="42" class="d-inline-block align-top"
-        alt="">
-      Disney Gif Search
+        alt="Powered By Giphy">
     </a>
+    <div id ="title">Disney Gif Search</div>
   </nav>
   <br>
   <br>
@@ -35,8 +36,12 @@
         <!--empty for spacing purposes-->
       </div>
       <div class="col-md-4">
+        <div class="row">
         <input class="form-control" id="searchBox" type="text" placeholder="Search Disney gifs!">
+        </div>
+        <div class="row">
         <button type="button" id="searchButton" class="btn btn-outline-dark">Search</button>
+        </div>
       </div>
       <div class="col-md-4">
         <!--empty for spacing purposes-->

@@ -1,3 +1,5 @@
+$( document ).ready(function() {
+
 // Opening variable for initial buttons
 
 var topics = ["The Little Mermaid", "Ariel", "Prince Eric", "Sebastian", "Flounder"];
@@ -42,11 +44,11 @@ $(document).on("click", ".subject", function () {
         var results = response.data;
         $("#gifBox").empty();
         for (i = 0; i < results.length; i++) {
-            var newGif = $("<div class='card'>");
-            var textBody = $("<div class='text-body'>");
+            var newDiv = $("<div class='newGif'>");
             var image = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("class", "card-img-top").attr("data-state", "still").attr("data-animated", results[i].images.fixed_height.url).attr('data-still', results[i].images.fixed_height_still.url)
             var rating = $("<p>").attr("class", "card-text").text(results[i].rating.toUpperCase());
-            $("#gifBox").prepend(newGif, image, textBody, rating);
+            $(newDiv).append(image,rating);
+            $("#gifBox").prepend(newDiv);
         };
     })
 });
@@ -69,7 +71,7 @@ $(document).on("click", ".card-img-top", function () {
         $(this).attr("data-state", "still");
     }
 });
-
+});
 
 
 
