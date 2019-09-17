@@ -2,40 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!--Reset css <link rel="stylesheet type="text/css" href="reset.css">-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="additionalstyle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!--Reset css <link rel="stylesheet type="text/css" href="reset.css">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="additionalstyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    
-<nav class="navbar navbar-light bg-light">
+
+  <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="images/PoweredBy_200px-White_HorizLogo.png" width="200" height="42" class="d-inline-block align-top" alt="">
+      <img src="images/PoweredBy_200px-White_HorizLogo.png" width="200" height="42" class="d-inline-block align-top"
+        alt="">
       Disney Gif Search
     </a>
   </nav>
   <br>
   <br>
-    <div class="container">
-        <div id="buttonLibrary">
-
-        </div>
+  <div class="container">
+    <div id="buttonLibrary">
     </div>
-
-
-
-
-
-
-    <script src="app.js"></script>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <!--empty for spacing purposes-->
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" id="searchBox" type="text" placeholder="Search Disney gifs!">
+        <button type="button" id="searchButton" class="btn btn-outline-dark">Search</button>
+      </div>
+      <div class="col-md-4">
+        <!--empty for spacing purposes-->
+      </div>
+    </div>
+  </div>
+  <div class="container" id="gifBox">
     
+  </div>
+
+
+
+
+
+  <script src="app.js"></script>
+
 </body>
 
 </html>
