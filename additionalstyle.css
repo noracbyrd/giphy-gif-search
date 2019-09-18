@@ -16,7 +16,7 @@ body{
 nav{
     background-image: url("images/background.png");
     background-repeat: x;
-    position:fixed;
+    position: static;
 }
 button{
     margin: 10px;
@@ -67,6 +67,16 @@ button:hover{
     display: inline-block;
     margin: 10px;
 }
-#searchButton{
+.buttonHolder{
+    margin: auto;
     text-align: center;
 }
+
+@media screen and (max-width: 640px) {
+    nav {
+      width: 100%;
+      text-align: center;
+      margin: auto;
+      padding: 10px;
+    }
+  }
