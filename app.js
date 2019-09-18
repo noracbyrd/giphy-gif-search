@@ -69,27 +69,25 @@ $(document).on("click", ".card-img-top", function () {
 });
 });
 
+// Adding gifs to the favorites and saving them in local storage!
+var savedFavorites = [];
 $(document).on("click",".favorite", function() {
-    var savedFavorites = [];
     var getParent = $(this).parent();
     var getChild = getParent.children(".card-img-top");
     var getURL = $(getChild).attr("data-animated");
+    savedFavorites.push(getURL);
     var addFavorite = $("<img>").attr("src",getURL).attr("class","aFavorite");
     $("#myFavorites").append(addFavorite);
-    $(savedFavorites).push(addFavorite);
-    localStorage.setItem("favorite",$(addFavorite).attr("src"));
-    for (i = 0; i < savedFavorites.length; i++){
-        localStorage.setItem("favorite",savedFavorites[i]);
-    }
-    // savedFavorites.push(newFavorite);
-    // for (var i = 0; i < savedFavorites.length; i++){
-    //     $("#myFavorites").append(i);
-    //     localStorage.setItem("favGif",i);
-    // }
-
+    localStorage.setItem("favorites",savedFavorites);
+    return savedFavorites;
 })
-var link = localStorage.getItem("favorite");
-var img = $("<img>").attr("src",localStorage.getItem("favorite"));
-$("#myFavorites").append(img);
+
+// Displaying the favorites
+var imgs = localStorage.getItem("favorites");
+var finalImgs = imgs.split(",");
+for (i in finalImgs) {
+    $("#myFavorites").append($("<img>").attr("src",finalImgs[i]).attr("class","aFavorite"));
+}
+
 
 

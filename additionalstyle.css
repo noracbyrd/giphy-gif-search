@@ -32,21 +32,30 @@ button{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     color: #dd6cb4;
+    box-shadow: 0 4px #a74482;
 }
 button:hover{
     background-color:#dd6cb4;
     color: #ffffff;
 }
+button:active {
+    background-color: #dd6cb4;
+    box-shadow: 0 3px #a74482;
+    transform: translateY(2px);
+  }
+/*recognize that the below limits accessibility - am leaving it like this for the moment to enjoy the aesthetics but if this were going to be a real commercial site I would add the outline back in*/  
+button:focus {
+    outline: 0;
+}
 .card-img-top{
     width: 18rem;
     border-radius: 20px;
-    border: 2px solid #dd6cb4;
-
+    border: 4px solid #dd6cb4;
 }
 .card-text{
     width: 18rem;
     border-radius: 20px;
-    border: 2px solid #ffffff;
+    border: 4px solid #ffffff;
     text-align: center;
     background-color: #dd6cb4;
     color: #ffffff;
@@ -60,11 +69,17 @@ button:hover{
     padding: 15px;
     font-weight: bold;
     font-size: 1.2em;
+    box-shadow: 0 4px #7b49b4;
 }
 #searchButton:hover{
     background-color: #9763d3;
     color: #ffffff;
 }
+#searchButton:active {
+    background-color: #9763d3;
+    box-shadow: 0 3px #7b497b;
+    transform: translateY(2px);
+  }
 .newGif{
     display: inline-block;
     margin: 10px;
@@ -75,7 +90,7 @@ button:hover{
 }
 .aFavorite{
     margin: 10px;
-    border: 2px solid #9763d3;
+    border: 4px solid #9763d3;
     border-radius: 15px;
 }
 
