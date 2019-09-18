@@ -3,7 +3,7 @@ $( document ).ready(function() {
 // Opening variable for initial buttons
 
 var topics = ["The Little Mermaid", "Ariel", "Prince Eric", "Sebastian", "Flounder"];
-var savedFavorites = [];
+
 
 // Function to generate buttons for initial search topics
 function renderButtons() {
@@ -31,7 +31,6 @@ $("#searchButton").on("click", function () {
 // Makes sure to include .subject class, which is generated dynamically
 $(document).on("click", ".subject", function () {
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=B512iYGR2yIt5fyZEJzMSAMKwAQbh5xX";
-    console.log("i got clicked");
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -71,11 +70,17 @@ $(document).on("click", ".card-img-top", function () {
 });
 
 $(document).on("click",".favorite", function() {
+    var savedFavorites = [];
     var getParent = $(this).parent();
     var getChild = getParent.children(".card-img-top");
     var getURL = $(getChild).attr("data-animated");
-    var addFavorite = $("<img>").attr("src",getURL);
+    var addFavorite = $("<img>").attr("src",getURL).attr("class","aFavorite");
     $("#myFavorites").append(addFavorite);
+    $(savedFavorites).push(addFavorite);
+    localStorage.setItem("favorite",$(addFavorite).attr("src"));
+    for (i = 0; i < savedFavorites.length; i++){
+        localStorage.setItem("favorite",savedFavorites[i]);
+    }
     // savedFavorites.push(newFavorite);
     // for (var i = 0; i < savedFavorites.length; i++){
     //     $("#myFavorites").append(i);
@@ -83,4 +88,8 @@ $(document).on("click",".favorite", function() {
     // }
 
 })
+var link = localStorage.getItem("favorite");
+var img = $("<img>").attr("src",localStorage.getItem("favorite"));
+$("#myFavorites").append(img);
+
 

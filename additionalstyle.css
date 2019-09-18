@@ -15,6 +15,8 @@ body{
 }
 h3{
     font-family: 'Pacifico', cursive;
+    color: #9763d3;
+    font-weight: bold;
 }
 nav{
     background-image: url("images/background.png");
@@ -70,6 +72,11 @@ button:hover{
 .buttonHolder{
     margin: auto;
     text-align: center;
+}
+.aFavorite{
+    margin: 10px;
+    border: 2px solid #9763d3;
+    border-radius: 15px;
 }
 
 @media screen and (max-width: 640px) {
