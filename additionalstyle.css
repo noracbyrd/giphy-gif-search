@@ -32,9 +32,6 @@ button:hover{
     background-color:#dd6cb4;
     color: #ffffff;
 }
-.card{
-    width: 18rem;
-}
 .card-img-top{
     width: 18rem;
     border-radius: 20px;
@@ -73,10 +70,13 @@ button:hover{
 }
 
 @media screen and (max-width: 640px) {
-    nav {
+    #topBar {
       width: 100%;
-      text-align: center;
       margin: auto;
       padding: 10px;
+      justify-content: center;
+    }
+    #title{
+        justify-content: center;
     }
   }
