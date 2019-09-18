@@ -3,7 +3,7 @@ $( document ).ready(function() {
 // Opening variable for initial buttons
 
 var topics = ["The Little Mermaid", "Ariel", "Prince Eric", "Sebastian", "Flounder"];
-
+var savedFavorites = [];
 
 // Function to generate buttons for initial search topics
 function renderButtons() {
@@ -47,7 +47,8 @@ $(document).on("click", ".subject", function () {
             var newDiv = $("<div class='newGif'>");
             var image = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("class", "card-img-top").attr("data-state", "still").attr("data-animated", results[i].images.fixed_height.url).attr('data-still', results[i].images.fixed_height_still.url)
             var rating = $("<p>").attr("class", "card-text").text(results[i].rating.toUpperCase());
-            $(newDiv).append(image,rating);
+            var favorites = $("<button>").attr("class","card-text").attr("class","favorite").text("Add to Favorites");
+            $(newDiv).append(image,rating,favorites);
             $("#gifBox").prepend(newDiv);
         };
     })
@@ -57,21 +58,29 @@ $(document).on("click", ".subject", function () {
 // Makes sure to include .card-img-top class, which is generated dynamically
 $(document).on("click", ".card-img-top", function () {
     var state = $(this).attr("data-state");
-    console.log(state);
     //animate the gif
     if (state === "still") {
-        console.log("ooga booga");
-        console.log(this);
         $(this).attr("src", $(this).attr('data-animated'));
         $(this).attr("data-state", "animate");
     //still the gif
     } else {
-        console.log("arga warga");
         $(this).attr("src", $(this).attr('data-still'));
         $(this).attr("data-state", "still");
     }
 });
 });
 
+$(document).on("click",".favorite", function() {
+    var getParent = $(this).parent();
+    var getChild = getParent.children(".card-img-top");
+    var getURL = $(getChild).attr("data-animated");
+    var addFavorite = $("<img>").attr("src",getURL);
+    $("#myFavorites").append(addFavorite);
+    // savedFavorites.push(newFavorite);
+    // for (var i = 0; i < savedFavorites.length; i++){
+    //     $("#myFavorites").append(i);
+    //     localStorage.setItem("favGif",i);
+    // }
 
+})
 

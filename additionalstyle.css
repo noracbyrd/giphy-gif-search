@@ -13,6 +13,9 @@ body{
     -1px 1px 0 #ffffff,
      1px 1px 0 #ffffff;
 }
+h3{
+    font-family: 'Pacifico', cursive;
+}
 nav{
     background-image: url("images/background.png");
     background-repeat: x;
