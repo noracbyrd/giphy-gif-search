@@ -70,12 +70,13 @@ $(document).on("click", ".card-img-top", function () {
 });
 
 // Adding gifs to the favorites and saving them in local storage!
-var savedFavorites = [];
+var savedFavorites;
 $(document).on("click",".favorite", function() {
+    savedFavorites = localStorage.getItem("favorites");
     var getParent = $(this).parent();
     var getChild = getParent.children(".card-img-top");
     var getURL = $(getChild).attr("data-animated");
-    savedFavorites.push(getURL);
+    savedFavorites += `, ${getURL}`;
     var addFavorite = $("<img>").attr("src",getURL).attr("class","aFavorite");
     $("#myFavorites").append(addFavorite);
     localStorage.setItem("favorites",savedFavorites);
