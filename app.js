@@ -72,13 +72,16 @@ $(document).on("click", ".card-img-top", function () {
 // Adding gifs to the favorites and saving them in local storage!
 var savedFavorites;
 $(document).on("click",".favorite", function() {
+    // getting the images that were saved previously
     savedFavorites = localStorage.getItem("favorites");
     var getParent = $(this).parent();
     var getChild = getParent.children(".card-img-top");
     var getURL = $(getChild).attr("data-animated");
+    // adding the new favorites
     savedFavorites += `, ${getURL}`;
     var addFavorite = $("<img>").attr("src",getURL).attr("class","aFavorite");
     $("#myFavorites").append(addFavorite);
+    // setting the storage to have old favorites & new
     localStorage.setItem("favorites",savedFavorites);
     return savedFavorites;
 })
